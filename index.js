@@ -15,7 +15,10 @@
       .firstElementChild;
   };
 
-  const getPlayerId = () => (Number.isInteger(state.operationId / 2) ? 1 : 2);
+  const getPlayerId = () => {
+    console.log(state.operationId);
+    return Number.isInteger(state.operationId / 2) ? 2 : 1;
+  };
 
   const getWinner = () => {
     if (state.currentRow !== 0) return;
@@ -48,7 +51,7 @@
 
   const takeFlags = (numberOfFlags) => {
     if (operationIsValid(numberOfFlags)) {
-      state.operationId = state.operationId++;
+      state.operationId = state.operationId + 1;
       state.flagElementsByRow[state.currentRow].shift().remove();
 
       if (numberOfFlags === 2) {
