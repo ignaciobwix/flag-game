@@ -48,7 +48,7 @@
 
   const takeFlags = (numberOfFlags) => {
     if (operationIsValid(numberOfFlags)) {
-      state.operationId++;
+      state.operationId = state.operationId++;
       state.flagElementsByRow[state.currentRow].shift().remove();
 
       if (numberOfFlags === 2) {
@@ -90,7 +90,7 @@
 
     createFlags();
 
-    log.innerHTML = "";
+    log.innerHTML = "New game started!";
 
     teke1btn.addEventListener("click", handleTakeFlag);
 
